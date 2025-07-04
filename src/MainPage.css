@@ -1,0 +1,123 @@
+/* Main animated background */
+.main-bg {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crazy-anim-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(2px);
+  animation: float 8s infinite ease-in-out;
+}
+.shape1 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+.shape2 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+}
+.shape3 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  top: 70%;
+  left: 10%;
+  animation-delay: 4s;
+}
+.shape4 {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #00c3ff 0%, #ffff1c 100%);
+  top: 20%;
+  left: 70%;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.main-title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 32px #000a, 0 1px 0 #fff2;
+  animation: popIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.7) translateY(40px); }
+  80% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.main-btn-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px #0004;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.4s;
+  outline: none;
+  animation: btnPop 1.2s cubic-bezier(.68,-0.55,.27,1.55) 0.5s backwards;
+}
+
+@keyframes btnPop {
+  0% { opacity: 0; transform: scale(0.7) translateY(40px); }
+  80% { opacity: 1; transform: scale(1.08) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.main-btn:hover, .main-btn:focus {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px #0006;
+} 
